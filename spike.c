@@ -33,7 +33,7 @@
 #define USER_BUFF_SIZE	128
 
 #define SPI_BUS 1
-#define SPI_BUS_CS1 1
+#define SPI_BUS_CS 0
 #define SPI_BUS_SPEED 1000000
 
 
@@ -217,7 +217,7 @@ static int __init add_spike_device_to_bus(void)
 		return -1;
 	}
 
-	spi_device->chip_select = SPI_BUS_CS1;
+	spi_device->chip_select = SPI_BUS_CS;
 
 	/* Check whether this SPI bus.cs is already claimed */
 	snprintf(buff, sizeof(buff), "%s.%u", 
