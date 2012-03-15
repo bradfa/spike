@@ -18,7 +18,7 @@
   Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
   
   spike v0.1 loads and registers a spi driver for a device at the bus/
-  cable select specified by the constants SPI_BUS.SPI_BUS_CS1
+  cable select specified by the constants SPI_BUS.SPI_BUS_CS
 */
 
 #include <linux/init.h>
@@ -35,7 +35,7 @@
 #define USER_BUFF_SIZE	128
 
 #define SPI_BUS 1
-#define SPI_BUS_CS1 1
+#define SPI_BUS_CS 0
 #define SPI_BUS_SPEED 1000000
 
 
@@ -164,7 +164,7 @@ static int __init add_spike_device_to_bus(void)
 		return -1;
 	}
 
-	spi_device->chip_select = SPI_BUS_CS1;
+	spi_device->chip_select = SPI_BUS_CS;
 
 	/* Check whether this SPI bus.cs is already claimed */
 	snprintf(buff, sizeof(buff), "%s.%u", 
